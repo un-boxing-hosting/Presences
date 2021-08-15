@@ -14,27 +14,25 @@ presence.on("UpdateData", async () => {
   //Discord Bot List
   if (window.location.pathname.startsWith("/staff")) {
     presenceData.details = "Viewing Staff section:";
-    
 
   
-    if (window.location.pathname == "/staff/stats") {
+    if (window.location.pathname == "/staff/stats") 
       presenceData.state = "looking at leader board";
-    }
-  } else if (window.location.pathname.startsWith("/bots")){
-    if (window.location.pathname.endsWith("/submit")) {
+    
+  } else if (window.location.pathname.startsWith("/bots")) {
+    if (window.location.pathname.endsWith("/submit")) 
       presenceData.state = "Add a bot";
-    }else{
+    else
     presenceData.details = "Looking for a Discord bot";
-    }
-  }
-  else if (window.location.pathname.startsWith("/bot/")) {
+    
+  } else if (window.location.pathname.startsWith("/bot/")) {
     if (window.location.pathname.endsWith("/edit")) {
       presenceData.details = "Editing a Discord bot:";
-      presenceData.state = document.querySelectorAll(`h3`).item(1).textContent.slice(4)
+      presenceData.state = document.querySelectorAll(`h3`).item(1).textContent.slice(4);
    
     } else {
       presenceData.details = "Viewing a Discord bot:";
-      presenceData.state = document.querySelectorAll(`h3`).item(1).textContent
+      presenceData.state = document.querySelectorAll(`h3`).item(1).textContent;
     }
   } else if (window.location.pathname.startsWith("/tag")) {
     presenceData.details = "Viewing Discord bots with tag:";
@@ -45,33 +43,32 @@ presence.on("UpdateData", async () => {
     presenceData.details = "Viewing a profile:";
     presenceData.state = document.querySelectorAll(`h3`).item(1).textContent;
   } else if (window.location.pathname.startsWith("/docs")) {
-    if (window.location.pathname.endsWith("/api")){
+    if (window.location.pathname.endsWith("/api")) 
       presenceData.state = "Looking at API Documentation";
-    } else if (window.location.pathname.endsWith("/markdown/example")) {
+     else if (window.location.pathname.endsWith("/markdown/example")) 
       presenceData.state = "Looking at Markdown example";
-    } else if (window.location.pathname.endsWith("/markdown")) {
+     else if (window.location.pathname.endsWith("/markdown")) 
       presenceData.state = "Looking at Markdown Editor";
-    }
-    else{
+    
+    else
     presenceData.state = "Looking at Documentation";
-    }
-  }
-
-  //Discord Server List
-  else if (window.location.pathname.startsWith("/servers")) {
-      presenceData.state = "Looking for Discord Servers";
     
   }
 
+  //Discord Server List
+  else if (window.location.pathname.startsWith("/servers")) 
+      presenceData.state = "Looking for Discord Servers";
+  
+
   //If it doesn't fit to anything
-  else if (document.querySelectorAll(`h3`).item(1)) {
+  else if (document.querySelectorAll(`h3`).item(1)) 
     presenceData.state = document.querySelectorAll(`h3`).item(1).textContent;
-  }
+  
 
   //If it really finds nothing
-  else {
+  else 
     presenceData.details = "Viewing something...";
-  }
+  
 
   presence.setActivity(presenceData);
 });
